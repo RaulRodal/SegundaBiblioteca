@@ -32,7 +32,7 @@ public class Conexion {
 	public static Connection getConnection() {
 		final String URL = SERVER + PORT + SCHEMA;
 		if (conn == null) {
-			// loadDriver(MYSQL_DRIVER);
+			loadDriver(MYSQL_DRIVER);
 			System.out.println("Connecting database ...");
 			try {
 				conn = DriverManager.getConnection(URL, USER, PASS);
@@ -44,6 +44,7 @@ public class Conexion {
 		return conn;
 	}
 
+	@Deprecated
 	public static void loadDriver(String driver) {
 		System.out.println("Loading driver ...");
 		try {
