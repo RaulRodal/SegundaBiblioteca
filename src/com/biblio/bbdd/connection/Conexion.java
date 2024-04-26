@@ -1,4 +1,4 @@
-package com.biblio.connection;
+package com.biblio.bbdd.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -3,7 +3,7 @@ package com.biblio.app;
 import java.sql.Connection;
 import java.util.Scanner;
 
-import com.biblio.connection.Conexion;
+import com.biblio.bbdd.connection.Conexion;
 import com.biblio.menu.GestionMenu;
 import com.biblio.models.documentos.TipoDocumento;
 
