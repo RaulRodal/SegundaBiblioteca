@@ -1,4 +1,4 @@
-package com.biblio.models;
+package com.biblio.models.documentos;
 
 /**
  * Clase que hereda de Documento 
@@ -13,4 +13,5 @@ public class Revista extends Documento {
 	public Revista(String idRevista, String titulo) {
 		super(idRevista, titulo);
 	}
+	
 }

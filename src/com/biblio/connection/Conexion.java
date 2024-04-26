@@ -30,7 +30,7 @@ public class Conexion {
 	 * @return conexion
 	 */
 	public static Connection getConnection() {
-		final String URL = SERVER + PORT + SCHEMA;
+		final String URL = getUrlCompleta();
 		if (conn == null) {
 			loadDriver(MYSQL_DRIVER);
 			System.out.println("Connecting database ...");
@@ -61,4 +61,8 @@ public class Conexion {
 		 }
 		 return conn.isClosed();
 	 }
+	
+	public static String getUrlCompleta() {
+		return SERVER + PORT + SCHEMA;
+	}
 }

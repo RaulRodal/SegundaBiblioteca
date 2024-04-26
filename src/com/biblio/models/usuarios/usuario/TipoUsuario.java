@@ -1,4 +1,4 @@
-package com.biblio.models;
+package com.biblio.models.usuarios.usuario;
 
 /**
  * Enumerador de tipo_usuario donde se almacenan el numero maximo de dias que puede tener

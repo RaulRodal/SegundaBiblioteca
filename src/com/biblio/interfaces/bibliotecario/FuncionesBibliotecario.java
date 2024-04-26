@@ -1,7 +1,7 @@
-package com.biblio.models.bibliotecario;
+package com.biblio.interfaces.bibliotecario;
 
-import com.biblio.models.Documento;
-import com.biblio.models.Usuario;
+import com.biblio.models.documentos.Documento;
+import com.biblio.models.usuarios.usuario.Usuario;
 
 public interface FuncionesBibliotecario {
 
