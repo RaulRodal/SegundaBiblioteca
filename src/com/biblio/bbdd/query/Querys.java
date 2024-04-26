@@ -1,8 +1,11 @@
-package com.biblio.config;
+package com.biblio.bbdd.query;
 
 // CLASE A ELIMINAR, HAY QUE CEREAR UNAS QUERYS EN BBDDD
-public class ConfigDocuments {
+public class Querys {
 	
+	public abstract class Documentos{
+		
+	}
 	public static String QUERY_SELECT_LIBRO_VALUE = "SELECT value FROM biblioteca.config WHERE nombre = libro;";
 	public static String QUERY_SELECT_REVISTA_VALUE = "SELECT value FROM biblioteca.config WHERE nombre = revista;";
 	public static String QUERY_INSERT_NEW_DOCUMENT = "INSERT INTO biblioteca.config (title, value) VALUES (?, ?);";
