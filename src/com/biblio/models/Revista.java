@@ -10,7 +10,7 @@ public class Revista extends Documento {
 	public Revista() {
 	}
 	
-	public Revista(String id_revista, String titulo) {
-		super(id_revista, titulo);
+	public Revista(String idRevista, String titulo) {
+		super(idRevista, titulo);
 	}
 }

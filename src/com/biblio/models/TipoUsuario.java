@@ -2,7 +2,7 @@ package com.biblio.models;
 
 /**
  * Enumerador de tipo_usuario donde se almacenan el numero maximo de dias que puede tener
- * un libro cada tipo de usuario y cuantos puede tener prestados
+ * un libro cada tipo de usuario y cuantos documentos puede tener prestados
  * @author Admin
  *
  */

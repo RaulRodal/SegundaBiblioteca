@@ -12,8 +12,8 @@ public class Libro extends Documento {
 		super();
 	}
 	
-	public Libro(String id_documento, String titulo, int anhoPublicacion) {
-		super(id_documento, titulo);
+	public Libro(String idDocumento, String titulo, int anhoPublicacion) {
+		super(idDocumento, titulo);
 		this.anhoPublicacion = anhoPublicacion;
 	}
 

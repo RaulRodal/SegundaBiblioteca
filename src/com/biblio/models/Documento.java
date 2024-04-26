@@ -6,23 +6,23 @@ package com.biblio.models;
  *
  */
 public abstract class Documento {
-	private String id_documento;
+	private String idDocumento;
 	private String titulo;
 	
 	public Documento() {
 	}
 	
-	public Documento(String id_documento, String titulo) {
-		this.id_documento = id_documento;
+	public Documento(String idDocumento, String titulo) {
+		this.idDocumento = idDocumento;
 		this.titulo = titulo;
 	}
 
 	public String getId_documento() {
-		return id_documento;
+		return idDocumento;
 	}
 
-	public void setId_documento(String id_documento) {
-		this.id_documento = id_documento;
+	public void setId_documento(String idDocumento) {
+		this.idDocumento = idDocumento;
 	}
 
 	public String getTitulo() {
@@ -37,7 +37,7 @@ public abstract class Documento {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append(this.getClass().getSimpleName()).append(", id_documento=")
-		.append(id_documento).append(", titulo=").append(titulo);
+		.append(idDocumento).append(", titulo=").append(titulo);
 		return builder.toString();
 	}
 		
