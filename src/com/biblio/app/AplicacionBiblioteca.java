@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import com.biblio.connection.Conexion;
 import com.biblio.menu.GestionMenu;
+import com.biblio.models.documentos.TipoDocumento;
 
 public class AplicacionBiblioteca {
 
