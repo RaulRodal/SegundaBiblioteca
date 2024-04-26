@@ -17,7 +17,7 @@ public class Conexion {
 
 	private final static String SERVER = "jdbc:mysql://localhost:";
 	private final static String PORT = "3306/";
-	private final static String SCHEMA = "biblioteca";
+	private final static String SCHEMA = "biblioteca2";
 	private final static String USER = "root";
 	private final static String PASS = "root";
 	private final static String MYSQL_DRIVER = "com.mysql.cj.jdbc.Driver";
