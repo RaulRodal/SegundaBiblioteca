@@ -17,11 +17,11 @@ public abstract class Documento {
 		this.titulo = titulo;
 	}
 
-	public String getId_documento() {
+	public String getIdDocumento() {
 		return idDocumento;
 	}
 
-	public void setId_documento(String idDocumento) {
+	public void setIdDocumento(String idDocumento) {
 		this.idDocumento = idDocumento;
 	}
 
