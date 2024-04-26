@@ -1,5 +1,6 @@
 package com.biblio.config;
 
+// CLASE A ELIMINAR, HAY QUE CEREAR UNAS QUERYS EN BBDDD
 public class ConfigDocuments {
 	
 	public static String QUERY_SELECT_LIBRO_VALUE = "SELECT value FROM biblioteca.config WHERE nombre = libro;";
