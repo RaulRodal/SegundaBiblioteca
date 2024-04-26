@@ -1,4 +1,4 @@
-package com.biblio.models;
+package com.biblio.models.documentos;
 
 /**
  * Clase padre Documento de la que heredan Libro y Revista 

@@ -17,7 +17,7 @@ public class Conexion {
 
 	private final static String SERVER = "jdbc:mysql://localhost:";
 	private final static String PORT = "3306/";
-	private final static String SCHEMA = "biblioteca";
+	private final static String SCHEMA = "biblioteca2";
 	private final static String USER = "root";
 	private final static String PASS = "root";
 	private final static String MYSQL_DRIVER = "com.mysql.cj.jdbc.Driver";
@@ -30,9 +30,9 @@ public class Conexion {
 	 * @return conexion
 	 */
 	public static Connection getConnection() {
-		final String URL = SERVER + PORT + SCHEMA;
+		final String URL = getUrlCompleta();
 		if (conn == null) {
-			// loadDriver(MYSQL_DRIVER);
+			loadDriver(MYSQL_DRIVER);
 			System.out.println("Connecting database ...");
 			try {
 				conn = DriverManager.getConnection(URL, USER, PASS);
@@ -44,6 +44,7 @@ public class Conexion {
 		return conn;
 	}
 
+	@Deprecated
 	public static void loadDriver(String driver) {
 		System.out.println("Loading driver ...");
 		try {
@@ -60,4 +61,8 @@ public class Conexion {
 		 }
 		 return conn.isClosed();
 	 }
+	
+	public static String getUrlCompleta() {
+		return SERVER + PORT + SCHEMA;
+	}
 }

@@ -1,4 +1,4 @@
-package com.biblio.models;
+package com.biblio.models.documentos;
 /**
  * Clase que extiende de Documento y añade el anño de publicacion
  * @author Admin

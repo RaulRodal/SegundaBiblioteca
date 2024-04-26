@@ -1,6 +1,9 @@
-package com.biblio.models;
+package com.biblio.models.usuarios.usuario;
 
 import java.time.LocalDate;
+
+import com.biblio.models.documentos.Documento;
+import com.biblio.models.documentos.Revista;
 
 /**
  * Clase Usuario que siempre inicializa el TipoUsuario en OCASIONAL, tiene todos los getters y setters
