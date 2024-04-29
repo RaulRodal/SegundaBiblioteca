@@ -1,8 +1,10 @@
 package com.biblio.menu;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Scanner;
 
+import com.biblio.bbdd.query.QuerysUsuarios;
 import com.biblio.util.GestionNumeros;
 
 public class GestionMenu {
@@ -19,7 +21,7 @@ public class GestionMenu {
 		System.out.println("2 - ");
 		System.out.println("3 - ");
 		System.out.println("4 - ");
-		System.out.println("5 - ");
+		System.out.println("5 - Buscar usuario por dni ");
 		System.out.println("6 - ");
 		System.out.println("7 - ");
 		System.out.println("8 - ");
@@ -36,8 +38,9 @@ public class GestionMenu {
 	 * @param conn       la Conexion con bbdd
 	 * @param biblioteca la biblioteca a gestionar
 	 * @param scan       Scanner
+	 * @throws SQLException 
 	 */
-	public static void menu(Connection conn, Scanner scan) {
+	public static void menu(Connection conn, Scanner scan) throws SQLException {
 		Integer seleccionada = -1;
 		do {
 			seleccionada = mostrarMenu(scan);
@@ -59,7 +62,8 @@ public class GestionMenu {
 				break;
 			}
 			case 5: {
-
+				System.out.println("Introduzca dni: ");
+				System.out.println(QuerysUsuarios.findDni(scan.nextLine()));
 				break;
 			}
 			case 6: {
