@@ -1,6 +1,7 @@
 package com.biblio.app;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 import com.biblio.bbdd.connection.Conexion;
@@ -18,7 +19,11 @@ public class AplicacionBiblioteca {
 		Scanner sc = new Scanner(System.in);
 		
 		// Lanzar el menu de la aplicacion
-		GestionMenu.menu(conn, sc);
+		try {
+			GestionMenu.menu(conn, sc);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 }

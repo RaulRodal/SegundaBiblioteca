@@ -20,7 +20,6 @@ public class Conexion {
 	private final static String SCHEMA = "biblioteca2";
 	private final static String USER = "root";
 	private final static String PASS = "root";
-	private final static String MYSQL_DRIVER = "com.mysql.cj.jdbc.Driver";
 
 	/**
 	 * Método que devuelve la conexion realizada con el esquema y los credenciales
@@ -32,7 +31,6 @@ public class Conexion {
 	public static Connection getConnection() {
 		final String URL = getUrlCompleta();
 		if (conn == null) {
-			loadDriver(MYSQL_DRIVER);
 			System.out.println("Connecting database ...");
 			try {
 				conn = DriverManager.getConnection(URL, USER, PASS);
@@ -42,17 +40,6 @@ public class Conexion {
 			}
 		}
 		return conn;
-	}
-
-	@Deprecated
-	public static void loadDriver(String driver) {
-		System.out.println("Loading driver ...");
-		try {
-			Class.forName(driver);
-			System.out.println("Driver loaded!");
-		} catch (ClassNotFoundException e) {
-			throw new IllegalStateException("Cannot find the driver in the classpath!", e);
-		}
 	}
 
 	public static boolean closeConnection() throws SQLException {
