@@ -66,11 +66,10 @@ public class QuerysUsuarios {
 	 * @return usuario
 	 * @throws SQLException
 	 */
-	public static Usuario findDni(String dni) throws SQLException {
+	public static Usuario findDni(Connection connection, String dni) throws SQLException {
 		Usuario usuario = null;
 
-		try (Connection connection = Conexion.getConnection();
-				PreparedStatement statement = connection.prepareStatement(UsuariosEnum.SELECT_BY_DNI.getSql());) {
+		try (PreparedStatement statement = connection.prepareStatement(UsuariosEnum.SELECT_BY_DNI.getSql());) {
 			statement.setString(1, dni);
 
 			try (ResultSet resultSet = statement.executeQuery()) {

@@ -83,11 +83,10 @@ public abstract class QuerysDocumentos {
 	 * @return Libro/Revista
 	 * @throws SQLException
 	 */
-	public static Documento findDocumento(String tituloDocumento) throws SQLException {
+	public static Documento findDocumento(Connection connection, String tituloDocumento) throws SQLException {
 		Libro libro = null;
 		Revista revista = null;
-		try (Connection connection = Conexion.getConnection();
-				PreparedStatement statement = connection
+		try (PreparedStatement statement = connection
 						.prepareStatement(DocumentosEnum.FILTER_DOCUMENT_BY_TITLE.getSql());) {
 			statement.setString(1, "%" + tituloDocumento + "%");
 			try (ResultSet rs = statement.executeQuery()) {
