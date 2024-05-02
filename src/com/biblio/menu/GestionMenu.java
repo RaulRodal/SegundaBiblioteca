@@ -49,9 +49,7 @@ public class GestionMenu {
 			seleccionada = mostrarMenu(scan);
 			switch (seleccionada) {
 			case 1: { // Seleccionar documento por titulo.
-				String titulo = GestionNumeros.scanFrase("Introduce el titulo a buscar: ", scan);
-				documentoSeleccionado = QuerysDocumentos.findDocumento(conn, titulo);
-				System.out.println(documentoSeleccionado);
+				documentoSeleccionado = QuerysDocumentos.getDcumentoPorTitulo(conn, scan);
 				break;
 			}
 			case 2: {

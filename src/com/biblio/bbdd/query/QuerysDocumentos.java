@@ -4,12 +4,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 import com.biblio.bbdd.connection.Conexion;
 import com.biblio.models.documentos.Documento;
 import com.biblio.models.documentos.Libro;
 import com.biblio.models.documentos.Revista;
 import com.biblio.models.documentos.TipoDocumento;
+import com.biblio.util.GestionNumeros;
+
 
 public abstract class QuerysDocumentos {
 
@@ -106,5 +112,71 @@ public abstract class QuerysDocumentos {
 			}
 		return null;
 	}
+	
+	/**
+	 * Busca en la base de datos todos los documentos que contengan en su titulo la palabra introducida
+	 * @param conn la Conexion
+	 * @param scan el Scanner
+	 * @return la lista de documentos que se han encontrado
+	 * @throws SQLException
+	 */
+	public static List<Documento> getDocumentosFiltrados(Connection conn, Scanner scan) throws SQLException{
+		String titulo = GestionNumeros.scanFrase("Introduce el titulo del documento a buscar.", scan);
+
+		PreparedStatement pstmt = conn.prepareStatement(DocumentosEnum.FILTER_DOCUMENT_BY_TITLE.getSql());
+		pstmt.setString(1, "%" + titulo + "%");
+
+		ResultSet rs = pstmt.executeQuery();
+
+		Documento documento = null;
+		List<Documento> documentosFiltrados = new ArrayList();
+		
+		// Recorrer el ResultSet
+		while (rs.next()) {
+			String id = rs.getString("id_documento");
+			String cod = rs.getString("codigo");
+			String title = rs.getString("titulo");
+			if (rs.getString("tipo_documento").equalsIgnoreCase(TipoDocumento.LIBRO.name())) {
+				int anho = rs.getInt("anho_publicacion");
+				documento = new Libro(id, cod, title, anho);
+			}
+			if (rs.getString("tipo_documento").equalsIgnoreCase(TipoDocumento.REVISTA.name())) {
+				documento = new Revista(id, cod, title);
+			}
+			// Agregar el documento a la lista
+			documentosFiltrados.add(documento);
+		}
+		// Devolver el ArrayList
+		return documentosFiltrados;
+	}
+	
+	/**
+	 * Busca un documento por su titulo, en caso de haber varios se muestra una lista y se selecciona uno de ellos
+	 * @param conn
+	 * @param scan
+	 * @return
+	 * @throws SQLException
+	 */
+	public static Documento getDcumentoPorTitulo(Connection conn, Scanner scan)
+			throws SQLException {
+		List<Documento> documentosFiltrados = getDocumentosFiltrados(conn, scan);
+		Documento documento = null;
+		if (documentosFiltrados.size() >= 1) {
+			Integer seleccionado = 1;
+			if (documentosFiltrados.size() > 1) {
+				System.out.println("Documentos encontrados : ");
+				for (int i = 0; i < documentosFiltrados.size(); i++) {
+					System.out.println((i + 1) + " - " + documentosFiltrados.get(i));
+				}
+				String frase = "Seleccionar un documento de la lista del 1 al " + documentosFiltrados.size();
+				seleccionado = GestionNumeros.scanNumero(frase, scan);
+			}
+			documento = documentosFiltrados.get(seleccionado - 1);
+			System.out.println("Documento selecciondo: " + documento);
+		}
+		return documento;
+	}
+
+	
 
 }
