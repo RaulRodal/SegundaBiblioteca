@@ -12,10 +12,10 @@ import com.biblio.models.usuarios.usuario.Usuario;
 public class QuerysUsuarios {
 
 	public static final String QUERY_SELECT_ALL = "SELECT id_usuario, nombre, apellidos, tipo_usuario FROM usuarios WHERE dni = ?";
-	public static final String QUERY_SELECT_BY_ID = "SELECT id_usuario, dni, nombre, apellidos, tipo_usuario FROM usuarios WHERE id_usuario = ?";
-	public static final String QUERY_SELECT_BY_DNI = "SELECT id_usuario, dni, nombre, apellidos, tipo_usuario FROM usuarios WHERE dni = ?";
-	public static final String QUERY_INSERT_USUARIO = "INSERT INTO usuarios(dni, nombre, apellidos, tipo_usuario) VALUES (?, ?, ?, ?)";
-	public static final String QUERY_DELETE_USUARIO = "DELETE FROM usuarios WHERE dni = ?";
+	public static final String QUERY_SELECT_BY_ID = "SELECT id_usuario, dni, nombre, apellidos, tipo_usuario FROM usuario WHERE id_usuario = ?";
+	public static final String QUERY_SELECT_BY_DNI = "SELECT id_usuario, dni, nombre, apellidos, tipo_usuario FROM usuario WHERE dni = ?";
+	public static final String QUERY_INSERT_USUARIO = "INSERT INTO usuario(dni, nombre, apellidos, tipo_usuario) VALUES (?, ?, ?, ?)";
+	public static final String QUERY_DELETE_USUARIO = "DELETE FROM usuario WHERE dni = ?";
 
 	private enum UsuariosEnum {
 		
@@ -66,11 +66,10 @@ public class QuerysUsuarios {
 	 * @return usuario
 	 * @throws SQLException
 	 */
-	public static Usuario findDni(String dni) throws SQLException {
+	public static Usuario findDni(Connection connection, String dni) throws SQLException {
 		Usuario usuario = null;
 
-		try (Connection connection = Conexion.getConnection();
-				PreparedStatement statement = connection.prepareStatement(UsuariosEnum.SELECT_BY_DNI.getSql());) {
+		try (PreparedStatement statement = connection.prepareStatement(UsuariosEnum.SELECT_BY_DNI.getSql());) {
 			statement.setString(1, dni);
 
 			try (ResultSet resultSet = statement.executeQuery()) {

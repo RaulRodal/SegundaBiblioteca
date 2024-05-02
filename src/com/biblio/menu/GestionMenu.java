@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import com.biblio.bbdd.connection.Conexion;
 import com.biblio.bbdd.query.QuerysDocumentos;
 import com.biblio.bbdd.query.QuerysUsuarios;
 import com.biblio.util.GestionNumeros;
@@ -48,9 +49,7 @@ public class GestionMenu {
 			seleccionada = mostrarMenu(scan);
 			switch (seleccionada) {
 			case 1: { // Seleccionar documento por titulo.
-				String titulo = GestionNumeros.scanFrase("Introduce el titulo a buscar: ", scan);
-				documentoSeleccionado = QuerysDocumentos.findDocumento(titulo);
-				System.out.println(documentoSeleccionado);
+				documentoSeleccionado = QuerysDocumentos.getDcumentoPorTitulo(conn, scan);
 				break;
 			}
 			case 2: {
@@ -66,8 +65,8 @@ public class GestionMenu {
 				break;
 			}
 			case 5: {
-				System.out.println("Introduzca dni: ");
-				System.out.println(QuerysUsuarios.findDni(scan.nextLine()));
+				String dni = GestionNumeros.scanFrase("Introduzca dni: ", scan);
+				System.out.println(QuerysUsuarios.findDni(conn, dni));
 				break;
 			}
 			case 6: {
@@ -87,7 +86,8 @@ public class GestionMenu {
 				break;
 			}
 			case 10: {
-
+				Conexion.closeConnection();
+				System.exit(0);
 				break;
 			}
 
