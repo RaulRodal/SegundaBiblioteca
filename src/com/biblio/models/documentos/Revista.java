@@ -14,4 +14,14 @@ public class Revista extends Documento {
 		super(idRevista, titulo);
 	}
 	
+	public Revista(String idDocumento, String cod, String titulo) {
+		super(idDocumento, cod, titulo);
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(super.toString());
+		return builder.toString();
+	}
 }

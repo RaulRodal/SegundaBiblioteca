@@ -7,6 +7,7 @@ package com.biblio.models.documentos;
  */
 public abstract class Documento {
 	private String idDocumento;
+	private String cod;
 	private String titulo;
 	
 	public Documento() {
@@ -14,6 +15,13 @@ public abstract class Documento {
 	
 	public Documento(String idDocumento, String titulo) {
 		this.idDocumento = idDocumento;
+		this.titulo = titulo;
+	}
+
+	public Documento(String idDocumento, String cod, String titulo) {
+		super();
+		this.idDocumento = idDocumento;
+		this.cod = cod;
 		this.titulo = titulo;
 	}
 
@@ -33,12 +41,26 @@ public abstract class Documento {
 		this.titulo = titulo;
 	}
 
+	public String getCod() {
+		return cod;
+	}
+
+	public void setCod(String cod) {
+		this.cod = cod;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append(this.getClass().getSimpleName()).append(", id_documento=")
-		.append(idDocumento).append(", titulo=").append(titulo);
+		builder.append(this.getClass().getSimpleName()).append(", id_documento=");
+		builder.append(idDocumento);
+		builder.append(", cod=");
+		builder.append(cod);
+		builder.append(", titulo=");
+		builder.append(titulo);
 		return builder.toString();
 	}
+
+
 		
 }

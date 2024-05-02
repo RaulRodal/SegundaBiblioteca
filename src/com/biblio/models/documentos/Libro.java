@@ -17,6 +17,11 @@ public class Libro extends Documento {
 		this.anhoPublicacion = anhoPublicacion;
 	}
 
+	public Libro(String idDocumento, String cod, String titulo, int anhoPublicacion) {
+		super(idDocumento, cod, titulo);
+		this.anhoPublicacion = anhoPublicacion;
+	}
+
 	public int getAnhoPublicacion() {
 		return anhoPublicacion;
 	}

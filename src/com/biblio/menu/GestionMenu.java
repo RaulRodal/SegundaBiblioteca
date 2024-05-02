@@ -4,11 +4,13 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import com.biblio.bbdd.query.QuerysDocumentos;
 import com.biblio.bbdd.query.QuerysUsuarios;
 import com.biblio.util.GestionNumeros;
 
 public class GestionMenu {
 	public static final Integer opSalir = 10;
+	public static Object documentoSeleccionado;
 
 	/**
 	 * Menu con las opciones que puede gestionar el bibliotecario
@@ -32,13 +34,13 @@ public class GestionMenu {
 	}
 
 	/**
-	 * Gestion del menu, mostramos el menu mientras no se seleccione la opcion salir,
-	 * para cualquier gestion hay que seleccionar primero un documento
+	 * Gestion del menu, mostramos el menu mientras no se seleccione la opcion
+	 * salir, para cualquier gestion hay que seleccionar primero un documento
 	 * 
 	 * @param conn       la Conexion con bbdd
 	 * @param biblioteca la biblioteca a gestionar
 	 * @param scan       Scanner
-	 * @throws SQLException 
+	 * @throws SQLException
 	 */
 	public static void menu(Connection conn, Scanner scan) throws SQLException {
 		Integer seleccionada = -1;
@@ -46,7 +48,9 @@ public class GestionMenu {
 			seleccionada = mostrarMenu(scan);
 			switch (seleccionada) {
 			case 1: { // Seleccionar documento por titulo.
-
+				String titulo = GestionNumeros.scanFrase("Introduce el titulo a buscar: ", scan);
+				documentoSeleccionado = QuerysDocumentos.findDocumento(titulo);
+				System.out.println(documentoSeleccionado);
 				break;
 			}
 			case 2: {
@@ -71,19 +75,19 @@ public class GestionMenu {
 				break;
 			}
 			case 7: {
-				
+
 				break;
 			}
 			case 8: {
-				
+
 				break;
 			}
 			case 9: {
-				
+
 				break;
 			}
 			case 10: {
-				
+
 				break;
 			}
 
