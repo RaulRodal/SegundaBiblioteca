@@ -28,3 +28,10 @@ INSERT INTO biblioteca.usuario (dni, nombre, apellidos, tipo_usuario) VALUES ('3
 INSERT INTO biblioteca.usuario (dni, nombre, apellidos, tipo_usuario) VALUES ('55556666D', 'Javier', 'García', 'OCASIONAL');
 INSERT INTO biblioteca.usuario (dni, nombre, apellidos, tipo_usuario) VALUES ('77778888E', 'Elena', 'Martín', 'SOCIO');
 INSERT INTO biblioteca.usuario (dni, nombre, apellidos, tipo_usuario) VALUES ('99990000F', 'Antonio', 'Ruiz', 'OCASIONAL');
+
+-- INSERT PRESTAMOS
+INSERT INTO `biblioteca`.`prestamo` (`id_usuario`, `id_documento`, `fecha_prestamo`, `fecha_devolucion`, `devuelto`) VALUES ('4', '2', '2024-01-01', '2024-05-02', '0');
+INSERT INTO `biblioteca`.`prestamo` (`id_usuario`, `id_documento`, `fecha_prestamo`, `fecha_devolucion`, `devuelto`) VALUES ('5', '3', '2024-01-01', '2024-05-02', '0');
+INSERT INTO `biblioteca`.`prestamo` (`id_usuario`, `id_documento`, `fecha_prestamo`, `fecha_devolucion`, `devuelto`) VALUES ('6', '4', '2024-01-01', '2024-05-02', '0');
+INSERT INTO `biblioteca`.`prestamo` (`id_usuario`, `id_documento`, `fecha_prestamo`, `fecha_devolucion`, `devuelto`) VALUES ('7', '5', '2024-01-01', '2024-05-02', '0');
+INSERT INTO `biblioteca`.`prestamo` (`id_usuario`, `id_documento`, `fecha_prestamo`, `fecha_devolucion`, `devuelto`) VALUES ('8', '6', '2024-01-01', '2024-05-02', '0');

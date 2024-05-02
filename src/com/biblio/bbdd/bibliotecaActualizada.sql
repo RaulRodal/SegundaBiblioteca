@@ -90,7 +90,7 @@ TRIGGER `biblioteca`.`prestamo_AFTER_INSERT`
 AFTER INSERT ON `biblioteca`.`prestamo`
 FOR EACH ROW
 BEGIN
-    UPDATE Documentos
+    UPDATE documento
     SET disponible = 0
     WHERE id_documento = NEW.id_documento;
 END$$
@@ -103,7 +103,7 @@ AFTER UPDATE ON `biblioteca`.`prestamo`
 FOR EACH ROW
 BEGIN
 	IF (new.devuelto = 1) then
-    update documentos SET disponible = 1
+    update documento SET disponible = 1
     where id_documento = new.id_documento;
     END IF;
 END$$
